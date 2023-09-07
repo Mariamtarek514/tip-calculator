@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+htmL {
+    scroll-behavior: smooth;
+}
+:root {
+    --cyan: hsl(172, 67%, 45%);
+    --dark-cyan: hsl(183, 100%, 15%);
+    --grayish-cyan: hsl(184, 14%, 56%);
+    --dark-grayish-cyan: hsl(186, 14%, 43%);
+    --light-grayish-cyan: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+}
+body {
+    font-family: "Space Mono", monospace;
+    background-color: #c5e4e7;
+    position: relative;
+    min-height: 100vh;
+}
+.d-flex {
+    display: flex;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+.container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+.mb-5 {
+    margin-bottom: 2rem;
+}
+.content {
+    width: 899px;
+    max-width: 100%;
+    min-height: 414px;
+    background-color: var(--white);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    padding: 30px;
+    display: flex;
+}
+.content > form,
+.content > .result {
+    flex-basis: 50%;
+}
+
+.content form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.content form > div:not(.tips) {
+    width: 360px !important;
+}
+
+.content form label,
+.tips_header {
+    color: var(--dark-grayish-cyan);
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+.content form .input-group {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f3f8fb;
+    width: 369px;
+    height: 40px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.content form .input-group.green {
+    border: 2px solid #a0d4d0;
+}
+.content form .input-group.red {
+    border: 2px solid #d38a7c;
+}
+.content form .feadback {
+    color: #d38a7c;
+    font-size: 13px;
+}
+.content form .input-group .icon {
+    width: 40px;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+}
+
+.content form .input-group input,
+.content form .input-group input:focus {
+    border: none;
+    outline: none;
+}
+.content form .input-group input {
+    width: 100%;
+    height: 100%;
+    background-color: #f3f8fb;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 24px;
+    color: var(--grayish-cyan);
+    text-align: right;
+}
+.content .tips > div {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.content .tips div button,
+.content .tips div input {
+    border: none;
+    width: 115px;
+    height: 43px;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.content .tips div div input {
+    border: 2px solid #a0d4d0;
+    outline: none;
+    text-align: right;
+    color: var(--grayish-cyan);
+    font-size: 20px;
+}
+.content .tips > div > button {
+    background-color: var(--dark-cyan);
+    color: var(--light-grayish-cyan);
+}
+.content .tips div div button {
+    color: var(--dark-cyan);
+    background-color: #f3f8fb;
+    text-transform: capitalize;
+}
+.content .tips > div > button:hover {
+    background-color: #9fe8df;
+    color: var(--dark-cyan);
+}
+.content .tips > div button.active {
+    background-color: var(--cyan);
+    color: var(--dark-cyan);
+}
+.content .result {
+    background-color: var(--dark-cyan);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 30px 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.content .result .tip-amount {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-content: center;
+}
+.content .result .tip-details {
+    color: var(--light-grayish-cyan);
+    text-transform: capitalize;
+}
+.content .result .tip-details span {
+    color: var(--grayish-cyan);
+}
+.content .result .tip-amount .amount {
+    color: var(--cyan);
+    font-size: 40px;
+}
+.reset {
+    background-color: var(--cyan);
+    color: var(--dark-cyan);
+    font-size: 18px;
+    font-weight: 700;
+    border: 0;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.reset:hover {
+    background-color: #9fe8df;
+}
+/* repsonsive */
+@media screen and (max-width: 899px) {
+    .content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .content > form,
+    .content > .result {
+        flex-basis: 100%;
+    }
+
+    .content form > div:not(.tips),
+    .content form .input-group {
+        width: 100% !important;
+    }
+}
+@media screen and (max-width: 475px) {
+    .content .result {
+        padding: 20px;
+    }
+    .content .tips > div > button,
+    .content .tips .customeTip {
+        width: 45%;
+    }
+    .content .result .tip-details {
+        font-size: 14px;
+    }
+    .content .result .tip-amount .amount {
+        font-size: 25px;
+    }
+}
