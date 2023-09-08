@@ -3,40 +3,12 @@ import React, { useRef, useState } from "react";
 const Tips = ({
     handleTips,
     tips,
-    numOfPeople,
-    peopleRef,
-    billRef,
-    bill,
     open,
-    setOpen,
     id,
-    setId,
+    handleCustome,
+    handleCustomeTips,
 }) => {
     const cusomRef = useRef(null);
-
-    const handleCustomeTips = () => {
-        if (bill === 0) {
-            billRef.current.focus();
-        } else if (numOfPeople === 0) {
-            peopleRef.current.focus();
-        } else {
-            setOpen(true);
-            handleTips(0);
-            setId(0);
-            cusomRef.current && cusomRef.current.focus();
-        }
-    };
-    const handleCustome = (value) => {
-        setOpen(false);
-        if (bill === 0) {
-            billRef.current.focus();
-        } else if (numOfPeople === 0) {
-            peopleRef.current.focus();
-        } else {
-            handleTips(Number(value));
-            setId(value);
-        }
-    };
 
     return (
         <div className="tips">

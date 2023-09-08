@@ -1,9 +1,6 @@
 import React from "react";
 import dollarIcon from "../assets/icon-dollar.svg";
-const Bill = ({ bill, setBill, billRef, Class, setCalss }) => {
-    const handleBlur = () => {
-        bill !== 0 ? setCalss("green") : setCalss("red");
-    };
+const Bill = ({ bill, setBill, billRef, Class, handleBlur }) => {
     return (
         <div className="bill">
             <label htmlFor="bill">bill</label>
@@ -16,6 +13,7 @@ const Bill = ({ bill, setBill, billRef, Class, setCalss }) => {
                     value={bill}
                     ref={billRef}
                     min={0}
+                    id="bill"
                     step="any"
                     onBlur={handleBlur}
                     onChange={(e) => setBill(Number(e.target.value))}

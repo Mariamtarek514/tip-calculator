@@ -12,6 +12,7 @@ const App = () => {
     const [open, setOpen] = useState(false);
     const [billClass, setBillCalss] = useState("");
     const [peopleClass, setPeopleClass] = useState("");
+    const [error, setError] = useState(false);
     const [id, setId] = useState(0);
     const peopleRef = useRef(null);
     const billRef = useRef(null);
@@ -25,10 +26,41 @@ const App = () => {
         setOpen(false);
         setId(0);
     };
+    const handleCustome = (value) => {
+        setOpen(false);
+        if (bill !== 0 && numOfPeople !== 0) {
+            handleTips(Number(value));
+            setId(value);
+        }
+    };
+    const handleCustomeTips = () => {
+        if (bill !== 0 && numOfPeople !== 0) {
+            setOpen(true);
+            handleTips(0);
+            setId(0);
+            cusomRef.current && cusomRef.current.focus();
+        }
+    };
+    const handleBlur = () => {
+        if (numOfPeople === 0) {
+            setPeopleClass("red");
+            setError(true);
+            peopleRef.current.focus();
+        } else {
+            setError(false);
+            setPeopleClass("green");
+        }
+        if (bill === 0) {
+            setBillCalss("red");
+            billRef.current.focus();
+        } else {
+            setBillCalss("green");
+        }
+    };
     const handleSubmit = (e) => {
         e.preventDefault();
-        bill === 0 ? setBillCalss("red") : setBillCalss("green");
-        numOfPeople === 0 ? setPeopleClass("red") : setPeopleClass("green");
+
+        handleBlur();
     };
     return (
         <div className="container">
@@ -40,26 +72,24 @@ const App = () => {
                         setBill={setBill}
                         billRef={billRef}
                         Class={billClass}
-                        setCalss={setBillCalss}
+                        handleBlur={handleBlur}
                     />
                     <Tips
                         handleTips={handleTips}
                         tips={tips}
-                        numOfPeople={numOfPeople}
-                        peopleRef={peopleRef}
-                        billRef={billRef}
-                        bill={bill}
                         open={open}
-                        setOpen={setOpen}
                         id={id}
-                        setId={setId}
+                        setError={setError}
+                        handleCustome={handleCustome}
+                        handleCustomeTips={handleCustomeTips}
                     />
                     <People
                         numOfPeople={numOfPeople}
                         setNumOfPeople={setNumOfPeople}
                         peopleRef={peopleRef}
                         Class={peopleClass}
-                        setCalss={setPeopleClass}
+                        error={error}
+                        handleBlur={handleBlur}
                     />
                 </form>
                 <Result
