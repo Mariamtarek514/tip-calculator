@@ -23,6 +23,9 @@ body {
     background-color: #c5e4e7;
     position: relative;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .d-flex {
     display: flex;
@@ -32,19 +35,13 @@ body {
 }
 .container {
     width: 90%;
+    padding-left: 15px;
+    padding-right: 15px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
 }
 .mb-5 {
     margin-bottom: 2rem;
@@ -240,6 +237,9 @@ body {
 }
 /* repsonsive */
 @media screen and (max-width: 899px) {
+    .container {
+        margin-top: 2rem;
+    }
     .content {
         flex-direction: column;
         gap: 30px;
